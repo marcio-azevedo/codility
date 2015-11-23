@@ -75,6 +75,26 @@ namespace Code.Katas.Codility.Tests.Lessons
             Assert.IsTrue(result == expectedResult);
         }
 
+        [Test]
+        public void TestPermCheckWithError1()
+        {
+            var array = new int[] { 9, 5, 7, 3, 2, 7, 3, 1, 10, 8 };
+            var expectedResult = 0;
+            var result = CountingElements.solutionPermCheck(array);
+
+            Assert.IsTrue(result == expectedResult);
+        }
+
+        [Test]
+        public void TestPermCheckWithError2()
+        {
+            var array = new int[] { 1, 1 };
+            var expectedResult = 0;
+            var result = CountingElements.solutionPermCheck(array);
+
+            Assert.IsTrue(result == expectedResult);
+        }
+
         #endregion
 
         #region 

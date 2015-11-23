@@ -31,25 +31,32 @@
         }
 
         // Perm Check (Painless) - https://codility.com/programmers/task/perm_check
-        // result 100% - 
+        // result 100% - https://codility.com/demo/results/training62ADB9-TUD/
         public static int solutionPermCheck(int[] A)
         {
             int result = 0;
             int sum = 0;
             int maxNumber = 0;
+            int length = A.Length;
+            int[] permutation = new int[length + 1];
 
-            for (int i = 0; i < A.Length; i++)
+            for (int i = 0; i < length; i++)
             {
-                var position = A[i];
-                sum++;
-
-                if (position > maxNumber)
+                var position = A[i] - 1;
+                var value = position + 1;
+                if (position >= 0 && position < length && permutation[position] == 0)
                 {
-                    maxNumber = position;
+                    permutation[position] = 1;
+                    sum++;
+                }
+
+                if (value > maxNumber)
+                {
+                    maxNumber = value;
                 }
             }
 
-            if (sum == maxNumber)
+            if (sum == maxNumber && sum == length)
             {
                 result = 1;
             }
