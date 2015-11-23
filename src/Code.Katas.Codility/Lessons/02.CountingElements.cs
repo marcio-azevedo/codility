@@ -93,12 +93,13 @@
         }
 
         // Max Counters (Respectable / Medium) - https://codility.com/programmers/task/max_counters
-        // result 88% - https://codility.com/demo/results/trainingQMU6GB-UAN/
+        // result 100% - https://codility.com/demo/results/trainingSTWK6Z-AA8/
         public static int[] solutionMaxCounters(int N, int[] A)
         {
             int length = A.Length;
             int[] counters = new int[N];
             int maxCounter = 0;
+            int lastMaxCounterApplied = maxCounter;
 
             for (int k = 0; k < length; k++)
             {
@@ -111,12 +112,14 @@
                         maxCounter = counters[x - 1];
                     }
                 }
-                else if (x == N + 1)
+                else if ((x == N + 1) &&
+                         (lastMaxCounterApplied != maxCounter))
                 {
                     for (int i = 0; i < N; i++)
                     {
                         counters[i] = maxCounter;
                     }
+                    lastMaxCounterApplied = maxCounter;
                 }
             }
 
