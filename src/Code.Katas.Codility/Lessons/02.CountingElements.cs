@@ -3,9 +3,58 @@
     // https://codility.com/programmers/lessons/2
     public class CountingElements
     {
-        // TapeEquilibrium (Painless) - https://codility.com/programmers/task/tape_equilibrium
-        // result 100% - https://codility.com/demo/results/trainingMWBJ5Z-5PE/
+        // Frog River One (Painless) - https://codility.com/programmers/task/frog_river_one
+        // result 100% - https://codility.com/demo/results/trainingTRQEXA-XEF/
+        public static int solutionFrogRiverOne(int X, int[] A)
+        {
+            int result = -1;
+            int[] path = new int[X];
+            int sum = 0;
 
+            for (int i = 0; i < A.Length; i++)
+            {
+                var leafPosition = A[i];
+                if (path[leafPosition - 1] == 0)
+                {
+                    path[leafPosition - 1] = 1;
+                    sum++;
+                }
 
+                if (sum == X)
+                {
+                    result = i;
+                    break;
+                }
+            }
+
+            return result;
+        }
+
+        // Perm Check (Painless) - https://codility.com/programmers/task/perm_check
+        // result 100% - 
+        public static int solutionPermCheck(int[] A)
+        {
+            int result = 0;
+            int sum = 0;
+            int maxNumber = 0;
+
+            for (int i = 0; i < A.Length; i++)
+            {
+                var position = A[i];
+                sum++;
+
+                if (position > maxNumber)
+                {
+                    maxNumber = position;
+                }
+            }
+
+            if (sum == maxNumber)
+            {
+                result = 1;
+            }
+
+            return result;
+        }
     }
 }

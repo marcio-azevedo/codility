@@ -6,31 +6,6 @@ namespace Code.Katas.Codility.Tests.Lessons
     [TestFixture]
     public class Tests
     {
-        //[Test]
-        //public void TestEquilibriumIndexWithSuccess()
-        //{
-        //    var array = new int[] { -1, 3, -4, 5, 1, -6, 2, 1 };
-        //    var arrayLength = 8;
-
-        //    var equilibriumIndex = EquilibriumIndex.Solution(array, arrayLength);
-
-        //    Assert.GreaterOrEqual(equilibriumIndex, 0, $"P({equilibriumIndex}) is not greater or equal then 0.");
-        //    Assert.Less(equilibriumIndex, arrayLength, $"P({equilibriumIndex}) is not less then N ({arrayLength}).");
-        //    var sums = GetSums(array, arrayLength, equilibriumIndex);
-        //    Assert.IsTrue(sums.Item1 == sums.Item2);
-        //}
-
-        //[Test]
-        //public void TestLeaderWithSuccess()
-        //{
-        //    var array = new int[] { 1, 3, 1, 5, 1, -6, 1, 1 };
-
-        //    var leader = EquilibriumIndex.SolutionLeader(array);
-
-        //    Assert.Greater(array.Count(o => o == leader), array.Length / 2, $"P({leader}) is not greater then 0.");
-        //    Assert.IsTrue(leader == 1);
-        //}
-
         #region Time Complexity
 
         [Test]
@@ -68,6 +43,37 @@ namespace Code.Katas.Codility.Tests.Lessons
         #endregion
 
         #region Counting Elements
+
+        [Test]
+        public void TestFrogRiverOneWithSuccess()
+        {
+            var array = new int[] { 1, 3, 1, 4, 2, 3, 5, 4 };
+            var x = 5;
+            var expectedResult = 6;
+            var result = CountingElements.solutionFrogRiverOne(x, array);
+
+            Assert.IsTrue(result == expectedResult);
+        }
+
+        [Test]
+        public void TestPermCheckWithSuccess()
+        {
+            var array = new int[] { 4, 1, 3, 2 };
+            var expectedResult = 1;
+            var result = CountingElements.solutionPermCheck(array);
+
+            Assert.IsTrue(result == expectedResult);
+        }
+
+        [Test]
+        public void TestPermCheckWithError()
+        {
+            var array = new int[] { 4, 1, 3 };
+            var expectedResult = 0;
+            var result = CountingElements.solutionPermCheck(array);
+
+            Assert.IsTrue(result == expectedResult);
+        }
 
         #endregion
 
