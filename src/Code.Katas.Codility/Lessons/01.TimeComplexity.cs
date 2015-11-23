@@ -6,7 +6,7 @@ namespace Code.Katas.Codility.Lessons
     // https://codility.com/programmers/lessons/1
     public class TimeComplexity
     {
-        // TapeEquilibrium (Painless) - https://codility.com/programmers/task/tape_equilibrium
+        // TapeEquilibrium (Painless / Easy) - https://codility.com/programmers/task/tape_equilibrium
         // result 100% - https://codility.com/demo/results/trainingMWBJ5Z-5PE/
         public static int solutionTapeEquilibrium(int[] A)
         {
@@ -28,7 +28,7 @@ namespace Code.Katas.Codility.Lessons
             return difference;
         }
 
-        // FrogJmp (Painless) - https://codility.com/programmers/task/frog_jmp
+        // FrogJmp (Painless / Easy) - https://codility.com/programmers/task/frog_jmp
         // result 100% - https://codility.com/demo/results/trainingTSUQDM-3UF/
         public static int solutionFrogJump(int X, int Y, int D)
         {
@@ -38,7 +38,7 @@ namespace Code.Katas.Codility.Lessons
             return result + ((rest > 0) ? (int)1 : 0);
         }
 
-        // PermMissingElem - https://codility.com/programmers/task/perm_missing_elem
+        // PermMissingElem (Painless / Easy) - https://codility.com/programmers/task/perm_missing_elem
         // result 100% - https://codility.com/demo/results/training4CKURG-MNM/
         public static int solutionPermMissingElem(int[] A)
         {

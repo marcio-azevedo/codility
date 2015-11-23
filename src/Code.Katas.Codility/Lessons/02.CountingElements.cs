@@ -3,7 +3,7 @@
     // https://codility.com/programmers/lessons/2
     public class CountingElements
     {
-        // Frog River One (Painless) - https://codility.com/programmers/task/frog_river_one
+        // Frog River One (Painless / Easy) - https://codility.com/programmers/task/frog_river_one
         // result 100% - https://codility.com/demo/results/trainingTRQEXA-XEF/
         public static int solutionFrogRiverOne(int X, int[] A)
         {
@@ -30,7 +30,7 @@
             return result;
         }
 
-        // Perm Check (Painless) - https://codility.com/programmers/task/perm_check
+        // Perm Check (Painless / Easy) - https://codility.com/programmers/task/perm_check
         // result 100% - https://codility.com/demo/results/training62ADB9-TUD/
         public static int solutionPermCheck(int[] A)
         {
@@ -64,7 +64,7 @@
             return result;
         }
 
-        // Missing Integer (Painless) - https://codility.com/programmers/task/missing_integer
+        // Missing Integer (Painless / Easy) - https://codility.com/programmers/task/missing_integer
         // result 100% - https://codility.com/demo/results/trainingQG6BSB-GKJ/
         public static int solutionMissingInteger(int[] A)
         {
@@ -90,6 +90,37 @@
             }
 
             return i + 1;
+        }
+
+        // Max Counters (Respectable / Medium) - https://codility.com/programmers/task/max_counters
+        // result 88% - https://codility.com/demo/results/trainingQMU6GB-UAN/
+        public static int[] solutionMaxCounters(int N, int[] A)
+        {
+            int length = A.Length;
+            int[] counters = new int[N];
+            int maxCounter = 0;
+
+            for (int k = 0; k < length; k++)
+            {
+                var x = A[k];
+                if (1 <= x && x <= N)
+                {
+                    counters[x - 1]++;
+                    if (counters[x - 1] > maxCounter)
+                    {
+                        maxCounter = counters[x - 1];
+                    }
+                }
+                else if (x == N + 1)
+                {
+                    for (int i = 0; i < N; i++)
+                    {
+                        counters[i] = maxCounter;
+                    }
+                }
+            }
+
+            return counters;
         }
     }
 }

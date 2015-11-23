@@ -105,6 +105,36 @@ namespace Code.Katas.Codility.Tests.Lessons
             Assert.IsTrue(result == expectedResult);
         }
 
+        [Test]
+        public void TestMaxCountersWithSuccess()
+        {
+            var array = new int[] { 3, 4, 4, 6, 1, 4, 4 };
+            int n = 5;
+            var expectedResult = new int[] { 3, 2, 2, 4, 2 };
+            var result = CountingElements.solutionMaxCounters(n, array);
+
+            Assert.IsTrue(result.Length == expectedResult.Length);
+            for (int i = 0; i < expectedResult.Length; i++)
+            {
+                Assert.IsTrue(result[i] == expectedResult[i]);
+            }
+        }
+
+        [Test]
+        public void TestMaxCountersWithSuccess1()
+        {
+            var array = new int[] { 1 };
+            int n = 1;
+            var expectedResult = new int[] { 1 };
+            var result = CountingElements.solutionMaxCounters(n, array);
+
+            Assert.IsTrue(result.Length == expectedResult.Length);
+            for (int i = 0; i < expectedResult.Length; i++)
+            {
+                Assert.IsTrue(result[i] == expectedResult[i]);
+            }
+        }
+
         #endregion
 
         #region 
