@@ -95,6 +95,16 @@ namespace Code.Katas.Codility.Tests.Lessons
             Assert.IsTrue(result == expectedResult);
         }
 
+        [Test]
+        public void TestMissingIntegerWithSuccess()
+        {
+            var array = new int[] { 1, 3, 6, 4, 1, 2 };
+            var expectedResult = 5;
+            var result = CountingElements.solutionMissingInteger(array);
+
+            Assert.IsTrue(result == expectedResult);
+        }
+
         #endregion
 
         #region 

@@ -63,5 +63,33 @@
 
             return result;
         }
+
+        // Missing Integer (Painless) - https://codility.com/programmers/task/missing_integer
+        // result 100% - https://codility.com/demo/results/trainingQG6BSB-GKJ/
+        public static int solutionMissingInteger(int[] A)
+        {
+            int length = A.Length;
+            int[] permutation = new int[100000];
+            int i = 0;
+
+            for (; i < length; i++)
+            {
+                var value = A[i];
+                var position = value - 1;
+                if (position >= 0 && position < 100000 &&
+                    permutation[position] == 0)
+                {
+                    permutation[position] = 1;
+                }
+            }
+
+            i = 0;
+            while (i < 100000 && permutation[i] != 0)
+            {
+                i++;
+            }
+
+            return i + 1;
+        }
     }
 }
