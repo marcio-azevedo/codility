@@ -6,6 +6,64 @@ namespace Code.Katas.Codility.Tests.Lessons
     [TestFixture]
     public class Tests
     {
+        #region Iterations
+
+        [Test]
+        public void TestBinaryGapWithSuccess1()
+        {
+            var n = 1041;
+            var expectedResult = 5;
+            var result = Iterations.solutionBinaryGap(n);
+
+            Assert.IsTrue(result == expectedResult);
+        }
+
+        [Test]
+        public void TestBinaryGapWithSuccess2()
+        {
+            var n = 9;
+            var expectedResult = 2;
+            var result = Iterations.solutionBinaryGap(n);
+
+            Assert.IsTrue(result == expectedResult);
+        }
+
+        [Test]
+        public void TestBinaryGapWithSuccess3()
+        {
+            var n = 529;
+            var expectedResult = 4;
+            var result = Iterations.solutionBinaryGap(n);
+
+            Assert.IsTrue(result == expectedResult);
+        }
+
+        [Test]
+        public void TestBinaryGapWithSuccess4()
+        {
+            var n = 20;
+            var expectedResult = 1;
+            var result = Iterations.solutionBinaryGap(n);
+
+            Assert.IsTrue(result == expectedResult);
+        }
+
+        [Test]
+        public void TestBinaryGapWithSuccess5()
+        {
+            var n = 15;
+            var expectedResult = 0;
+            var result = Iterations.solutionBinaryGap(n);
+
+            Assert.IsTrue(result == expectedResult);
+        }
+
+        #endregion
+
+        #region Arrays
+
+        #endregion
+
         #region Time Complexity
 
         [Test]
