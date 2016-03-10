@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Code.Katas.Codility.Lessons
 {
-    // https://codility.com/programmers/lessons/1
+    // TimeComplexity - https://codility.com/programmers/lessons/1
     public class TimeComplexity
     {
         // TapeEquilibrium (Painless / Easy) - https://codility.com/programmers/task/tape_equilibrium

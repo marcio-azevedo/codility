@@ -1,6 +1,6 @@
 ﻿namespace Code.Katas.Codility.Lessons
 {
-    // https://codility.com/programmers/lessons/2
+    // CountingElements - https://codility.com/programmers/lessons/2
     public class CountingElements
     {
         // Frog River One (Painless / Easy) - https://codility.com/programmers/task/frog_river_one

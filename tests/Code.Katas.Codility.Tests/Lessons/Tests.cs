@@ -62,6 +62,38 @@ namespace Code.Katas.Codility.Tests.Lessons
 
         #region Arrays
 
+        [Test]
+        public void TestCyclicRotationWithSuccess1()
+        {
+            var array = new int[] { 3, 8, 9, 7, 6 };
+            var k = 1;
+            var expectedResult = new int[] { 6, 3, 8, 9, 7 };
+            var result = Arrays.solutionCyclicRotation(array, k);
+
+            Assert.AreEqual(result, expectedResult);
+        }
+
+        [Test]
+        public void TestCyclicRotationWithSuccess2()
+        {
+            var array = new int[] { 3, 8, 9, 7, 6 };
+            var k = 3;
+            var expectedResult = new int[] { 9, 7, 6, 3, 8 };
+            var result = Arrays.solutionCyclicRotation(array, k);
+
+            Assert.AreEqual(result, expectedResult);
+        }
+
+        [Test]
+        public void TestOddOccurrencesInArrayWithSuccess1()
+        {
+            var array = new int[] { 9, 3, 9, 3, 9, 7, 9 };
+            var expectedResult = 7;
+            var result = Arrays.solutionOddOccurrencesInArray(array);
+
+            Assert.IsTrue(result == expectedResult);
+        }
+
         #endregion
 
         #region Time Complexity

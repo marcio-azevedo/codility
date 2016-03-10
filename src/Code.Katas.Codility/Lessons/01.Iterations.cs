@@ -2,7 +2,7 @@
 
 namespace Code.Katas.Codility.Lessons
 {
-    // https://codility.com/programmers/lessons/18/
+    // Iterations - https://codility.com/programmers/lessons/18/
     public class Iterations
     {
         // BinaryGap (Painless / Easy) - https://codility.com/programmers/task/binary_gap/

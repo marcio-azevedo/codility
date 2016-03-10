@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Lessons\02.Arrays.cs" />
     <Compile Include="Lessons\01.Iterations.cs" />
     <Compile Include="Lessons\03.TimeComplexity.cs" />
     <Compile Include="Lessons\04.CountingElements.cs" />
