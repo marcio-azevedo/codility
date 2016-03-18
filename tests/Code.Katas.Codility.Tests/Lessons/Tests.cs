@@ -8,53 +8,14 @@ namespace Code.Katas.Codility.Tests.Lessons
     {
         #region Iterations
 
-        [Test]
-        public void TestBinaryGapWithSuccess1()
+        [TestCase(1041, 5)]
+        [TestCase(9, 2)]
+        [TestCase(529, 4)]
+        [TestCase(20, 1)]
+        [TestCase(15, 0)]
+        public void TestBinaryGapWithSuccess(int n, int expectedResult)
         {
-            var n = 1041;
-            var expectedResult = 5;
             var result = Iterations.solutionBinaryGap(n);
-
-            Assert.IsTrue(result == expectedResult);
-        }
-
-        [Test]
-        public void TestBinaryGapWithSuccess2()
-        {
-            var n = 9;
-            var expectedResult = 2;
-            var result = Iterations.solutionBinaryGap(n);
-
-            Assert.IsTrue(result == expectedResult);
-        }
-
-        [Test]
-        public void TestBinaryGapWithSuccess3()
-        {
-            var n = 529;
-            var expectedResult = 4;
-            var result = Iterations.solutionBinaryGap(n);
-
-            Assert.IsTrue(result == expectedResult);
-        }
-
-        [Test]
-        public void TestBinaryGapWithSuccess4()
-        {
-            var n = 20;
-            var expectedResult = 1;
-            var result = Iterations.solutionBinaryGap(n);
-
-            Assert.IsTrue(result == expectedResult);
-        }
-
-        [Test]
-        public void TestBinaryGapWithSuccess5()
-        {
-            var n = 15;
-            var expectedResult = 0;
-            var result = Iterations.solutionBinaryGap(n);
-
             Assert.IsTrue(result == expectedResult);
         }
 
@@ -62,35 +23,19 @@ namespace Code.Katas.Codility.Tests.Lessons
 
         #region Arrays
 
-        [Test]
-        public void TestCyclicRotationWithSuccess1()
+        [TestCase(new int[] { 3, 8, 9, 7, 6 }, 1, new int[] { 6, 3, 8, 9, 7 })]
+        [TestCase(new int[] { 3, 8, 9, 7, 6 }, 3, new int[] { 9, 7, 6, 3, 8 })]
+        [TestCase(new int[] { 3, 8, 9, 7, 6 }, 1, new int[] { 6, 3, 8, 9, 7 })]
+        public void TestCyclicRotationWithSuccess(int[] array, int k, int[] expectedResult)
         {
-            var array = new int[] { 3, 8, 9, 7, 6 };
-            var k = 1;
-            var expectedResult = new int[] { 6, 3, 8, 9, 7 };
             var result = Arrays.solutionCyclicRotation(array, k);
-
             Assert.AreEqual(result, expectedResult);
         }
 
-        [Test]
-        public void TestCyclicRotationWithSuccess2()
+        [TestCase(new int[] { 9, 3, 9, 3, 9, 7, 9 }, 7)]
+        public void TestOddOccurrencesInArrayWithSuccess1(int[] array, int expectedResult)
         {
-            var array = new int[] { 3, 8, 9, 7, 6 };
-            var k = 3;
-            var expectedResult = new int[] { 9, 7, 6, 3, 8 };
-            var result = Arrays.solutionCyclicRotation(array, k);
-
-            Assert.AreEqual(result, expectedResult);
-        }
-
-        [Test]
-        public void TestOddOccurrencesInArrayWithSuccess1()
-        {
-            var array = new int[] { 9, 3, 9, 3, 9, 7, 9 };
-            var expectedResult = 7;
             var result = Arrays.solutionOddOccurrencesInArray(array);
-
             Assert.IsTrue(result == expectedResult);
         }
 
