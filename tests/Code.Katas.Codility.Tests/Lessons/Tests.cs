@@ -227,7 +227,25 @@ namespace Code.Katas.Codility.Tests.Lessons
 
         #endregion
 
-        #region 
+        #region Prefix Sums
+
+        [TestCase(6, 11, 2, 3)]
+        [TestCase(0, 0, 11, 1)] // A = B = 0, K = 11 => 1
+        [TestCase(0, 1, 11, 1)] // A = 0, B = 1, K = 11 => 1
+        [TestCase(1, 1, 11, 0)] // A = B = 1, K = 11 => 0
+        [TestCase(10, 10, 5, 1)]
+        [TestCase(11, 345, 17, 20)] //A = 11, B = 345, K = 17 => 20
+        [TestCase(10, 10, 5, 1)] //A = 10, B = 10, K in {5,7,20} => 1
+        [TestCase(10, 10, 7, 0)] //A = 10, B = 10, K in {5,7,20} => 0
+        [TestCase(10, 10, 20, 0)] //A = 10, B = 10, K in {5,7,20} => 0
+        [TestCase(101, 123000000, 10000, 12300)] //A = 101, B = 123M+, K = 10K => 12300
+        [TestCase(0, 2000000000, 1, 2000000001)] //A = 0, B = MAXINT, K = 1 => 2000000001
+        [TestCase(0, 2000000000, 2000000000, 2)] //A = 0, B = MAXINT, K = MAXINT => 2
+        public void TestCountDivWithSuccess(int a, int b, int k, int expectedResult)
+        {
+            var result = PerfixSums.solutionCountDiv(a, b, k);
+            Assert.IsTrue(result == expectedResult);
+        }
 
         #endregion
 
