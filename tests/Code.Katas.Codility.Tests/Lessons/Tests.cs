@@ -192,6 +192,13 @@ namespace Code.Katas.Codility.Tests.Lessons
             Assert.IsTrue(result == expectedResult);
         }
 
+        [TestCase(new int[] { 0, 1, 0, 1, 1 }, 5)] // A = B = 0, K = 11 => 1
+        public void TestPassingCarsWithSuccess(int[] a, int expectedResult)
+        {
+            var result = PerfixSums.solutionPassingCars(a);
+            Assert.IsTrue(result == expectedResult);
+        }
+
         #endregion
 
         //private Tuple<int, int> GetSums(int[] array, int length, int p)
