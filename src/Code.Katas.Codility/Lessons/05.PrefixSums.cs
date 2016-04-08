@@ -52,39 +52,32 @@
         }
 
         // Genomic Range Query (Respectable / Medium) - https://codility.com/programmers/task/genomic_range_query/
-        // result 62% - https://codility.com/demo/results/trainingZ5XPSJ-CYP/
+        // result 100% - https://codility.com/demo/results/trainingJHSECB-VXK/
         public static int[] solutionGenomicRangeQuery(string S, int[] P, int[] Q)
         {
             var m = P.Length;
             var n = S.Length;
             int[] result = new int[m];
-            int[] impact = new int[n];
+            int[,] arr = new int[n, 4];
 
             #region O(N)
 
             for (int i = 0; i < n; i++)
             {
-                var minimalImpact = 4;
-                switch (S[i])
-                {
-                    case 'A':
-                        minimalImpact = 1;
-                        break;
-                    case 'C':
-                        minimalImpact = 2;
-                        break;
-                    case 'G':
-                        minimalImpact = 3;
-                        break;
-                    case 'T':
-                        minimalImpact = 4;
-                        break;
-                    default:
-                        minimalImpact = 4;
-                        break;
-                }
+                char c = S[i];
+                if (c == 'A') arr[i, 0] = 1;
+                if (c == 'C') arr[i, 1] = 1;
+                if (c == 'G') arr[i, 2] = 1;
+                if (c == 'T') arr[i, 3] = 1;
+            }
 
-                impact[i] = minimalImpact;
+            // compute prefixes
+            for (int i = 1; i < n; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    arr[i, j] += arr[i - 1, j];
+                }
             }
 
             #endregion
@@ -93,20 +86,23 @@
 
             for (int i = 0; i < m; i++)
             {
-                var p = P[i];
-                var q = Q[i];
+                int x = P[i];
+                int y = Q[i];
 
-                result[i] = 4;
-                // O(N)
-                for (int j = p; j <= q; j++)
+                for (int a = 0; a < 4; a++)
                 {
-                    result[i] = (result[i] < impact[j]) ? result[i] : impact[j];
+                    int sub = 0;
+                    if (x - 1 >= 0) sub = arr[x - 1, a];
+                    if (arr[y, a] - sub > 0)
+                    {
+                        result[i] = a + 1;
+                        break;
+                    }
                 }
             }
 
             #endregion
 
-            // O(N+(M*N))
             return result;
         }
 
