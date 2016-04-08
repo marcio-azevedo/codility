@@ -199,6 +199,19 @@ namespace Code.Katas.Codility.Tests.Lessons
             Assert.IsTrue(result == expectedResult);
         }
 
+        [TestCase("CAGCCTA", new int[] { 2, 5, 0 }, new int[] { 4, 5, 6 }, new int[] { 2, 4, 1 })] // A = B = 0, K = 11 => 1
+        [TestCase("A", new int[] { 0 }, new int[] { 0 }, new int[] { 1 })] // A = B = 0, K = 11 => 1
+        public void TestGenomicRangeQueryWithSuccess(string s, int[] p, int[] q, int[] expectedResult)
+        {
+            var result = PerfixSums.solutionGenomicRangeQuery(s, p, q);
+
+            Assert.IsTrue(result.Length == expectedResult.Length);
+            for (int i = 0; i < result.Length; i++)
+            {
+                Assert.IsTrue(result[i] == expectedResult[i]);
+            }
+        }
+
         #endregion
 
         //private Tuple<int, int> GetSums(int[] array, int length, int p)

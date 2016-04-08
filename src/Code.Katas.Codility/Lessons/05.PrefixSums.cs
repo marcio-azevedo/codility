@@ -52,13 +52,61 @@
         }
 
         // Genomic Range Query (Respectable / Medium) - https://codility.com/programmers/task/genomic_range_query/
-        // result 0% - 
+        // result 62% - https://codility.com/demo/results/trainingZ5XPSJ-CYP/
         public static int[] solutionGenomicRangeQuery(string S, int[] P, int[] Q)
         {
-            int[] result = new int[] { };
+            var m = P.Length;
+            var n = S.Length;
+            int[] result = new int[m];
+            int[] impact = new int[n];
 
-            // TODO
+            #region O(N)
 
+            for (int i = 0; i < n; i++)
+            {
+                var minimalImpact = 4;
+                switch (S[i])
+                {
+                    case 'A':
+                        minimalImpact = 1;
+                        break;
+                    case 'C':
+                        minimalImpact = 2;
+                        break;
+                    case 'G':
+                        minimalImpact = 3;
+                        break;
+                    case 'T':
+                        minimalImpact = 4;
+                        break;
+                    default:
+                        minimalImpact = 4;
+                        break;
+                }
+
+                impact[i] = minimalImpact;
+            }
+
+            #endregion
+
+            #region O(M)
+
+            for (int i = 0; i < m; i++)
+            {
+                var p = P[i];
+                var q = Q[i];
+
+                result[i] = 4;
+                // O(N)
+                for (int j = p; j <= q; j++)
+                {
+                    result[i] = (result[i] < impact[j]) ? result[i] : impact[j];
+                }
+            }
+
+            #endregion
+
+            // O(N+(M*N))
             return result;
         }
 
