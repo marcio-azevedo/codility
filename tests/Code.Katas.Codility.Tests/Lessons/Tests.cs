@@ -213,6 +213,7 @@ namespace Code.Katas.Codility.Tests.Lessons
         }
 
         [TestCase(new int[] { 4, 2, 2, 5, 1, 5, 8 }, 1)]
+        [TestCase(new int[] { -3, -5, -8, -4, -10 }, 2)]
         public void TestMinAvgTwoSlicesWithSuccess(int[] a, int expectedResult)
         {
             var result = PerfixSums.solutionMinAvgTwoSlice(a);
