@@ -1,4 +1,6 @@
-﻿namespace Code.Katas.Codility.Lessons
+﻿using System.Linq;
+
+namespace Code.Katas.Codility.Lessons
 {
     // Prefix Sums - https://codility.com/programmers/lessons/3/
     public class PerfixSums
@@ -111,8 +113,23 @@
         public static int solutionMinAvgTwoSlice(int[] A)
         {
             int result = 0;
+            int n = A.Length;
+            decimal[,] averageSlices = new decimal[n, n];
+            var minimalAverage = decimal.MaxValue;
 
-            // TODO
+            for (int i = 0; i < (n - 1); i++)
+            {
+                for (int j = i + 1; j < n; j++)
+                {
+                    var total = A.Take(j + 1).Skip(i).Sum();
+                    averageSlices[i, j] = ((decimal)total) / (j - i + 1);
+                    if (averageSlices[i, j] < minimalAverage)
+                    {
+                        minimalAverage = averageSlices[i, j];
+                        result = i;
+                    }
+                }
+            }
 
             return result;
         }

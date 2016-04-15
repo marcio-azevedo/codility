@@ -212,6 +212,13 @@ namespace Code.Katas.Codility.Tests.Lessons
             }
         }
 
+        [TestCase(new int[] { 4, 2, 2, 5, 1, 5, 8 }, 1)]
+        public void TestMinAvgTwoSlicesWithSuccess(int[] a, int expectedResult)
+        {
+            var result = PerfixSums.solutionMinAvgTwoSlice(a);
+            Assert.IsTrue(result == expectedResult);
+        }
+
         #endregion
 
         //private Tuple<int, int> GetSums(int[] array, int length, int p)
