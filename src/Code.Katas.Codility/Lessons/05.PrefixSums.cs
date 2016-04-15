@@ -109,7 +109,7 @@ namespace Code.Katas.Codility.Lessons
         }
 
         // Min Avg Two Slice (Respectable / Medium) - https://codility.com/programmers/task/min_avg_two_slice/
-        // result 0% - 
+        // result 50% - https://codility.com/demo/results/training2UENTN-4E2/
         public static int solutionMinAvgTwoSlice(int[] A)
         {
             int result = 0;
