@@ -61,12 +61,10 @@ namespace Codility.Katas.Lessons
             if (N > 0)
             {
                 string binary = Convert.ToString(N, 2);
-                bool isInBinaryGap = false;
                 for (var i = 0; i < binary.Length; i++) {
                     var isOne = binary[i] == '1';
 
                     if (isOne) {
-                        isInBinaryGap = true;
                         binaryGap = (currentBinaryGap > binaryGap) ? currentBinaryGap : binaryGap;
                         currentBinaryGap = 0;
                     } else if (!isOne) {

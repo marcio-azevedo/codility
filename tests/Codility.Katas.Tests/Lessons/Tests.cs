@@ -29,6 +29,7 @@ namespace Codility.Katas.Tests.Lessons
         [TestCase(new int[] { 3, 8, 9, 7, 6 }, 1, new int[] { 6, 3, 8, 9, 7 })]
         [TestCase(new int[] { 3, 8, 9, 7, 6 }, 3, new int[] { 9, 7, 6, 3, 8 })]
         [TestCase(new int[] { 3, 8, 9, 7, 6 }, 1, new int[] { 6, 3, 8, 9, 7 })]
+        [TestCase(new int[] { }, 4, new int[] { })]
         public void TestCyclicRotationWithSuccess(int[] array, int k, int[] expectedResult)
         {
             var result = Arrays.solutionCyclicRotation(array, k);
