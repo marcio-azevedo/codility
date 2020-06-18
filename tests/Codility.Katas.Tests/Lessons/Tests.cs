@@ -1,7 +1,7 @@
-﻿using Code.Katas.Codility.Lessons;
+using Codility.Katas.Lessons;
 using NUnit.Framework;
 
-namespace Code.Katas.Codility.Tests.Lessons
+namespace Codility.Katas.Tests.Lessons
 {
     [TestFixture]
     public class Tests

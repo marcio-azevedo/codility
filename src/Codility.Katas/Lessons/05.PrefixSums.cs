@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace Code.Katas.Codility.Lessons
+namespace Codility.Katas.Lessons
 {
     // Prefix Sums - https://codility.com/programmers/lessons/3/
     public class PerfixSums

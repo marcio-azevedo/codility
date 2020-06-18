@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Code.Katas.Codility.Lessons
+namespace Codility.Katas.Lessons
 {
     // Arrays - https://codility.com/programmers/lessons/17/
     public class Arrays

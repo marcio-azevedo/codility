@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Code.Katas.Codility.Lessons
+namespace Codility.Katas.Lessons
 {
     // Iterations - https://codility.com/programmers/lessons/18/
     public class Iterations

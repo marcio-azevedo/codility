@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Code.Katas.Codility.Lessons
+namespace Codility.Katas.Lessons
 {
     // TimeComplexity - https://codility.com/programmers/lessons/1
     public class TimeComplexity

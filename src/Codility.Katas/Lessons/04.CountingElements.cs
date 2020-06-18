@@ -1,4 +1,4 @@
-﻿namespace Code.Katas.Codility.Lessons
+﻿namespace Codility.Katas.Lessons
 {
     // CountingElements - https://codility.com/programmers/lessons/2
     public class CountingElements
