@@ -13,9 +13,12 @@ namespace Codility.Katas.Tests.Lessons
         [TestCase(529, 4)]
         [TestCase(20, 1)]
         [TestCase(15, 0)]
+        [TestCase(328, 2)]
+        [TestCase(1162, 3)]
+        [TestCase(1610612737, 28)]
         public void TestBinaryGapWithSuccess(int n, int expectedResult)
         {
-            var result = Iterations.solutionBinaryGap(n);
+            var result = Iterations.solutionBinaryGap2(n);
             Assert.IsTrue(result == expectedResult);
         }
 

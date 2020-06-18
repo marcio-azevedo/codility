@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Codility.Katas.Lessons
 {
@@ -51,6 +52,30 @@ namespace Codility.Katas.Lessons
             }
 
             return longestBinaryGap;
+        }
+
+        public static int solutionBinaryGap2(int N)
+        {
+            int binaryGap = 0, currentBinaryGap = 0;
+
+            if (N > 0)
+            {
+                string binary = Convert.ToString(N, 2);
+                bool isInBinaryGap = false;
+                for (var i = 0; i < binary.Length; i++) {
+                    var isOne = binary[i] == '1';
+
+                    if (isOne) {
+                        isInBinaryGap = true;
+                        binaryGap = (currentBinaryGap > binaryGap) ? currentBinaryGap : binaryGap;
+                        currentBinaryGap = 0;
+                    } else if (!isOne) {
+                        currentBinaryGap++;
+                    }
+                }
+            }
+
+            return binaryGap;
         }
     }
 }
