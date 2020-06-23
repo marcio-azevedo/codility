@@ -83,88 +83,50 @@ namespace Codility.Katas.Tests.Lessons
 
         #region Counting Elements
 
-        [Test]
-        public void TestFrogRiverOneWithSuccess()
+        [TestCase(1, new int[] { 1 }, 0)]
+        [TestCase(5, new int[] { 1, 3, 1, 4, 2, 3, 5, 4 }, 6)]
+        [TestCase(2, new int[] { 2, 2, 2, 2, 2 }, -1)]
+        public void TestFrogRiverOneWithSuccess(int x, int[] array, int expectedResult)
         {
-            var array = new int[] { 1, 3, 1, 4, 2, 3, 5, 4 };
-            var x = 5;
-            var expectedResult = 6;
             var result = CountingElements.solutionFrogRiverOne(x, array);
-
             Assert.IsTrue(result == expectedResult);
         }
 
-        [Test]
-        public void TestPermCheckWithSuccess()
+        [TestCase(new int[] { 4, 1, 3, 2 }, 1)]
+        //[TestCase(new int[] { 4, 1, 3, 2 }, 1)]
+        public void TestPermCheckWithSuccess(int[] array, int expectedResult)
         {
-            var array = new int[] { 4, 1, 3, 2 };
-            var expectedResult = 1;
             var result = CountingElements.solutionPermCheck(array);
-
             Assert.IsTrue(result == expectedResult);
         }
 
-        [Test]
-        public void TestPermCheckWithError()
+        [TestCase(new int[] { 4, 1, 3 }, 0)]
+        [TestCase(new int[] { 9, 5, 7, 3, 2, 7, 3, 1, 10, 8 }, 0)]
+        [TestCase(new int[] { 1, 1 }, 0)]
+        public void TestPermCheckWithError(int[] array, int expectedResult)
         {
-            var array = new int[] { 4, 1, 3 };
-            var expectedResult = 0;
             var result = CountingElements.solutionPermCheck(array);
-
             Assert.IsTrue(result == expectedResult);
         }
 
-        [Test]
-        public void TestPermCheckWithError1()
+        [TestCase(new int[] { 1, 3, 6, 4, 1, 2 }, 5)]
+        public void TestMissingIntegerWithSuccess(int[] array, int expectedResult)
         {
-            var array = new int[] { 9, 5, 7, 3, 2, 7, 3, 1, 10, 8 };
-            var expectedResult = 0;
-            var result = CountingElements.solutionPermCheck(array);
-
-            Assert.IsTrue(result == expectedResult);
-        }
-
-        [Test]
-        public void TestPermCheckWithError2()
-        {
-            var array = new int[] { 1, 1 };
-            var expectedResult = 0;
-            var result = CountingElements.solutionPermCheck(array);
-
-            Assert.IsTrue(result == expectedResult);
-        }
-
-        [Test]
-        public void TestMissingIntegerWithSuccess()
-        {
-            var array = new int[] { 1, 3, 6, 4, 1, 2 };
-            var expectedResult = 5;
             var result = CountingElements.solutionMissingInteger(array);
 
             Assert.IsTrue(result == expectedResult);
         }
 
-        [Test]
-        public void TestMaxCountersWithSuccess()
+        [TestCase(5, new int[] { 3, 4, 4, 6, 1, 4, 4 }, new int[] { 3, 2, 2, 4, 2 })]
+        [TestCase(1, new int[] { 1 }, new int[] { 1 })]
+        [TestCase(4, new int[] { 1, 2, 3, 4, 5 }, new int[] { 1, 1, 1, 1 })]
+        [TestCase(4, new int[] { 5, 4, 3, 2, 1 }, new int[] { 1, 1, 1, 1 })]
+        [TestCase(4, new int[] { 5, 4, 3, 2, 1, 5 }, new int[] { 1, 1, 1, 1 })]
+        [TestCase(4, new int[] { 1, 5, 4, 3, 2, 1, 5 }, new int[] { 2, 2, 2, 2 })]
+        [TestCase(4, new int[] { 1, 5, 4, 3, 2, 1, 1, 1, 5 }, new int[] { 4, 4, 4, 4 })]
+        [TestCase(4, new int[] { 1, 5, 4, 3, 2, 1, 1, 1 }, new int[] { 4, 2, 2, 2 })]
+        public void TestMaxCountersWithSuccess(int n, int[] array, int[] expectedResult)
         {
-            var array = new int[] { 3, 4, 4, 6, 1, 4, 4 };
-            int n = 5;
-            var expectedResult = new int[] { 3, 2, 2, 4, 2 };
-            var result = CountingElements.solutionMaxCounters(n, array);
-
-            Assert.IsTrue(result.Length == expectedResult.Length);
-            for (int i = 0; i < expectedResult.Length; i++)
-            {
-                Assert.IsTrue(result[i] == expectedResult[i]);
-            }
-        }
-
-        [Test]
-        public void TestMaxCountersWithSuccess1()
-        {
-            var array = new int[] { 1 };
-            int n = 1;
-            var expectedResult = new int[] { 1 };
             var result = CountingElements.solutionMaxCounters(n, array);
 
             Assert.IsTrue(result.Length == expectedResult.Length);
