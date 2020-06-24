@@ -59,9 +59,54 @@
             return result;
         }
 
-        public static int solutionPermCheck1(int[] A) {
+        public static int solutionMissingInteger(int[] A) {
+            int length = A.Length;
+            int[] counters = new int[length];
+            var missingInteger = length+1;
+
+            for (int i = 0; i < length; i++)
+            {
+                var value = A[i]-1;
+                if (value >= 0 && value < length) {
+                    counters[value]++;
+                }
+            }
+
+            for (int i = 0; i < length; i++)
+            {
+                if (counters[i] == 0) { 
+                    missingInteger = i+1;
+                    break;
+                }
+            }
+
+            return missingInteger;
+        }
+
+        public static int solutionPermCheck(int[] A) {
+            var isPermutation = 1;
+            var length = A.Length;
+            var counter = new int[length];
             
-            return -1;
+            for (int i = 0; i < length; i++)
+            {
+                var value = A[i];
+                if (value <= length)
+                {
+                    counter[value-1]++;
+                }
+            }
+
+            for (int i = 0; i < length; i++)
+            {
+                if (counter[i] == 0 || counter[i] > 1)
+                {
+                    isPermutation = 0;
+                    break;
+                }
+            }
+
+            return isPermutation;
         }
 
         // --
@@ -94,7 +139,7 @@
 
         // Perm Check (Painless / Easy) - https://codility.com/programmers/task/perm_check
         // result 100% - https://codility.com/demo/results/training62ADB9-TUD/
-        public static int solutionPermCheck(int[] A)
+        public static int solutionPermCheck1(int[] A)
         {
             int result = 0;
             int sum = 0;
@@ -128,7 +173,7 @@
 
         // Missing Integer (Painless / Easy) - https://codility.com/programmers/task/missing_integer
         // result 100% - https://codility.com/demo/results/trainingQG6BSB-GKJ/
-        public static int solutionMissingInteger(int[] A)
+        public static int solutionMissingInteger1(int[] A)
         {
             int length = A.Length;
             int[] permutation = new int[100000];

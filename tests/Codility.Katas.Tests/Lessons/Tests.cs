@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Codility.Katas.Lessons;
 using NUnit.Framework;
 
@@ -6,6 +7,27 @@ namespace Codility.Katas.Tests.Lessons
     [TestFixture]
     public class Tests
     {
+
+        [TestCase(2, 5)]
+        public void TestNumbrs1(int l, int r)//, List<int> expectedResult)
+        {
+            var expectedResult = new List<int> () { 3, 5 };
+            var result = Numbrs.OddNumbers(l, r);
+            //Assert.IsTrue(result == expectedResult);
+            for (int i = 0; i < expectedResult.Count; i++)
+            {
+                Assert.IsTrue(result[i] == expectedResult[i]);
+            }
+        }
+
+
+        [TestCase(50, new int[] { 20, 19}, new int[] { 24, 20}, 40)]
+        public void TestNumbrs2(int n, int[] bundleQuantities, int[] bundleCosts, int expectedResult)
+        {
+            var result = Numbrs.BudgetShopping(n, bundleQuantities, bundleCosts);
+            Assert.IsTrue(result == expectedResult);
+        }
+
         #region Iterations
 
         [TestCase(1041, 5)]
@@ -100,16 +122,21 @@ namespace Codility.Katas.Tests.Lessons
             Assert.IsTrue(result == expectedResult);
         }
 
+        [TestCase(new int[] { 4, 1, 2, 3 }, 1)]
         [TestCase(new int[] { 4, 1, 3 }, 0)]
         [TestCase(new int[] { 9, 5, 7, 3, 2, 7, 3, 1, 10, 8 }, 0)]
         [TestCase(new int[] { 1, 1 }, 0)]
-        public void TestPermCheckWithError(int[] array, int expectedResult)
+        public void TestPermCheck(int[] array, int expectedResult)
         {
             var result = CountingElements.solutionPermCheck(array);
             Assert.IsTrue(result == expectedResult);
         }
 
+        [TestCase(new int[] { 2 }, 1)]
         [TestCase(new int[] { 1, 3, 6, 4, 1, 2 }, 5)]
+        [TestCase(new int[] { 1, 2, 3 }, 4)]
+        [TestCase(new int[] { 1, 2, 3, 2, 1, 2 }, 4)]
+        [TestCase(new int[] { -1, -3 }, 1)]
         public void TestMissingIntegerWithSuccess(int[] array, int expectedResult)
         {
             var result = CountingElements.solutionMissingInteger(array);
