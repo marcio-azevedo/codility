@@ -5,9 +5,33 @@ namespace Codility.Katas.Lessons
     // Prefix Sums - https://codility.com/programmers/lessons/3/
     public class PerfixSums
     {
+        public static int solutionCountDiv(int A, int B, int K) {
+            int result = 0;
+            int currentNumber = A;
+
+            if (K == 1) {
+                result = B - A + 1;
+            } else {
+                while (currentNumber <= B && currentNumber >= 0)
+                {
+                    if (currentNumber % K == 0) {
+                        result++;
+                        currentNumber += K;
+                    } else {
+                        currentNumber++;
+                    }
+                }
+            }
+
+            return result;
+        }
+
+
+        // --
+
         // Count Div (Painless / Easy) - https://codility.com/programmers/task/count_div/
         // result 100% - https://codility.com/demo/results/trainingHDGERS-UT2/
-        public static int solutionCountDiv(int A, int B, int K)
+        public static int solutionCountDiv1(int A, int B, int K)
         {
             int result1 = (B / K);
             int result2 = ((A % K) != 0) ? (A / K) : ((A - 1) / K);
