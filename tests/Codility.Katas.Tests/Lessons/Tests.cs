@@ -219,6 +219,17 @@ namespace Codility.Katas.Tests.Lessons
 
         #endregion
 
+        #region Sorting
+
+        [TestCase(new int[] { 2, 1, 1, 2, 3, 1 }, 3)]
+        public void TestSortingDistinctWithSuccess(int[] a, int expectedResult)
+        {
+            var result = Sorting.Distinct(a);
+            Assert.IsTrue(result == expectedResult);
+        }
+
+        #endregion
+
         //private Tuple<int, int> GetSums(int[] array, int length, int p)
         //{
         //    int result1 = 0;
