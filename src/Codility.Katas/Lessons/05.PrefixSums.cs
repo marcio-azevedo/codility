@@ -5,33 +5,61 @@ namespace Codility.Katas.Lessons
     // Prefix Sums - https://codility.com/programmers/lessons/3/
     public class PerfixSums
     {
-        public static int solutionCountDiv(int A, int B, int K) {
-            int result = 0;
-            int currentNumber = A;
+        public static int solutionPassingCars(int[] A) {
+            int n = A.Length;
+            ulong limit = 1000000000;
+            int pairs = 0;
+            int[] carsWest = new int[n];
+            int cars = 0;
 
-            if (K == 1) {
-                result = B - A + 1;
-            } else {
-                while (currentNumber <= B && currentNumber >= 0)
-                {
-                    if (currentNumber % K == 0) {
-                        result++;
-                        currentNumber += K;
-                    } else {
-                        currentNumber++;
-                    }
+            for (int i = n-1; i >= 0; i--)
+            {
+                if (A[i] == 1) {
+                    cars++;
+                }
+                
+                carsWest[i] = cars;
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                if (A[i] == 0) {
+                    pairs += carsWest[i];
                 }
             }
 
-            return result;
+            return ((ulong)pairs > limit) ? -1 : pairs;
         }
 
+        public static int solutionMinAvgTwoSlice1(int[] A) {
+            float min = float.MaxValue;
+            int n = A.Length;
+            int index = n;
+            int sum = A[n-1];
+            float[] arr = new float[n];
+
+            for (int i = n-2; i >= 0; i--)
+            {
+                sum += A[i];
+                arr[i] = ((float)sum / (n-i));
+            }
+            
+            for (int i = 0; i < n-1; i++)
+            {
+                if (arr[i] < min) {
+                    min = arr[i];
+                    index = i;
+                }
+            }
+
+            return index;
+        }
 
         // --
 
         // Count Div (Painless / Easy) - https://codility.com/programmers/task/count_div/
         // result 100% - https://codility.com/demo/results/trainingHDGERS-UT2/
-        public static int solutionCountDiv1(int A, int B, int K)
+        public static int solutionCountDiv(int A, int B, int K)
         {
             int result1 = (B / K);
             int result2 = ((A % K) != 0) ? (A / K) : ((A - 1) / K);
@@ -52,7 +80,7 @@ namespace Codility.Katas.Lessons
 
         // Passing Cars (Painless / Easy) - https://codility.com/programmers/task/passing_cars/
         // result 100% - https://codility.com/demo/results/trainingF54EKW-A9G/
-        public static int solutionPassingCars(int[] A)
+        public static int solutionPassingCars1(int[] A)
         {
             int n = A.Length;
             uint cumulative = 0;

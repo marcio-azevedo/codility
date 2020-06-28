@@ -186,6 +186,10 @@ namespace Codility.Katas.Tests.Lessons
         }
 
         [TestCase(new int[] { 0, 1, 0, 1, 1 }, 5)] // A = B = 0, K = 11 => 1
+        [TestCase(new int[] { 0, 1, 0, 1, 1, 0, 1 }, 8)]
+        [TestCase(new int[] { 0 }, 0)]
+        [TestCase(new int[] { 1, 0 }, 0)]
+        [TestCase(new int[] { 0, 1 }, 1)]
         public void TestPassingCarsWithSuccess(int[] a, int expectedResult)
         {
             var result = PerfixSums.solutionPassingCars(a);
