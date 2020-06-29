@@ -221,10 +221,22 @@ namespace Codility.Katas.Tests.Lessons
 
         #region Sorting
 
+        [TestCase(new int[] { }, 0)]
         [TestCase(new int[] { 2, 1, 1, 2, 3, 1 }, 3)]
+        [TestCase(new int[] { -2, 1, -1, 2, 3, 1 }, 5)]
         public void TestSortingDistinctWithSuccess(int[] a, int expectedResult)
         {
             var result = Sorting.Distinct(a);
+            Assert.IsTrue(result == expectedResult);
+        }
+
+        [TestCase(new int[] { -50, -20, 1, 2, 3 }, 3000)]
+        [TestCase(new int[] { -1, 1, 1 }, -1)]
+        [TestCase(new int[] { 0, 0, 0 }, 0)]
+        [TestCase(new int[] { -3, 1, 2, -2, 5, 6 }, 60)]
+        public void TestSortingMaxProductOfThreeWithSuccess(int[] a, int expectedResult)
+        {
+            var result = Sorting.MaxProductOfThree(a);
             Assert.IsTrue(result == expectedResult);
         }
 
