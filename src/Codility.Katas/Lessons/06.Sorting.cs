@@ -62,6 +62,33 @@ namespace Codility.Katas.Lessons
             return result;
         }
 
+        public static int Triangle(int[] A) {
+            int n = A.Length;
+            int hasTriangular = 0;
+
+            if (n >= 3) {
+                Array.Sort(A);
+
+                for (int p = 0; p < n-2; p++)
+                {
+                    int q = p + 1;
+                    int r = p + 2;
+                    long pValue = A[p];
+                    long qValue = A[q];
+                    long rValue = A[r];
+
+                    if ((pValue + qValue > rValue) &&
+                        (qValue + rValue > pValue) &&
+                        (pValue + rValue > qValue)) {
+                        hasTriangular = 1;
+                        break;
+                    }
+                }
+            }
+
+            return hasTriangular;
+        }
+
         public static void MergeSort(int[] array) {
 
         }

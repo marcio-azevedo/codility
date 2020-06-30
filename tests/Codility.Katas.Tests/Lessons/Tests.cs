@@ -240,6 +240,17 @@ namespace Codility.Katas.Tests.Lessons
             Assert.IsTrue(result == expectedResult);
         }
 
+        [TestCase(new int[] { 10, 2, 5, 1, 8, 20 }, 1)]
+        [TestCase(new int[] { 10, 50, 5 }, 0)]
+        [TestCase(new int[] { 10, 50, 5, 1 }, 0)]
+        [TestCase(new int[] { 1, 1, 1 }, 1)]
+        [TestCase(new int[] { int.MaxValue-2, int.MaxValue-1, int.MaxValue }, 1)]
+        public void TestSortingTriangleWithSuccess(int[] a, int expectedResult)
+        {
+            var result = Sorting.Triangle(a);
+            Assert.IsTrue(result == expectedResult);
+        }
+
         #endregion
 
         //private Tuple<int, int> GetSums(int[] array, int length, int p)
