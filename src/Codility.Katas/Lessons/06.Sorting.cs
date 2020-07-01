@@ -89,6 +89,41 @@ namespace Codility.Katas.Lessons
             return hasTriangular;
         }
 
+        public static int NumberOfDiscIntersections(int[] A) {
+            int n = A.Length;
+            long[,] arr = new long[n,2];
+            int result = 0;
+
+            if (n > 0) {
+                for (int i = 0; i < n; i++)
+                {
+                    arr[i, 0] = i-(long)A[i];
+                    arr[i, 1] = i+(long)A[i];
+                }
+
+                for (int i = 0; i < n; i++)
+                {
+                    long min1 = arr[i, 0];
+                    long max1 = arr[i, 1];
+                    
+                    for (int j = i+1; j < n; j++)
+                    {
+                        long min2 = arr[j, 0];
+                        long max2 = arr[j, 1];
+
+                        if ((min1 >= min2 && min1 <= max2) ||
+                            (max1 >= min2 && max1 <= max2) ||
+                            (min2 >= min1 && min2 <= max1) ||
+                            (max2 >= min1 && max2 <= max1)) {
+                            result++;
+                        }
+                    }
+                }
+            }
+
+            return result;
+        }
+
         public static void MergeSort(int[] array) {
 
         }

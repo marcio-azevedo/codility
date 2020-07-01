@@ -1,11 +1,13 @@
 
 restore:
+	@echo restoring packages...
 	dotnet restore Codility.Kata.sln
 
 build:
+	@echo building solution...
 	dotnet build Codility.Kata.sln
 
 test:
-	dotnet build Codility.Kata.sln
+	@echo running unit tests...
 	dotnet test Codility.Kata.sln
 

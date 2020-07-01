@@ -2,32 +2,11 @@ using System.Collections.Generic;
 using Codility.Katas.Lessons;
 using NUnit.Framework;
 
-namespace Codility.Katas.Tests.Lessons
+namespace Codility.Katas.Tests
 {
     [TestFixture]
-    public class Tests
+    public class TestLessons
     {
-
-        [TestCase(2, 5)]
-        public void TestNumbrs1(int l, int r)//, List<int> expectedResult)
-        {
-            var expectedResult = new List<int> () { 3, 5 };
-            var result = Numbrs.OddNumbers(l, r);
-            //Assert.IsTrue(result == expectedResult);
-            for (int i = 0; i < expectedResult.Count; i++)
-            {
-                Assert.IsTrue(result[i] == expectedResult[i]);
-            }
-        }
-
-
-        [TestCase(50, new int[] { 20, 19}, new int[] { 24, 20}, 40)]
-        public void TestNumbrs2(int n, int[] bundleQuantities, int[] bundleCosts, int expectedResult)
-        {
-            var result = Numbrs.BudgetShopping(n, bundleQuantities, bundleCosts);
-            Assert.IsTrue(result == expectedResult);
-        }
-
         #region Iterations
 
         [TestCase(1041, 5)]
@@ -248,6 +227,14 @@ namespace Codility.Katas.Tests.Lessons
         public void TestSortingTriangleWithSuccess(int[] a, int expectedResult)
         {
             var result = Sorting.Triangle(a);
+            Assert.IsTrue(result == expectedResult);
+        }
+
+        [TestCase(new int[] { 1, 5, 2, 1, 4, 0 }, 11)]
+        [TestCase(new int[] { 1, int.MaxValue, 2, 1, 4, 0 }, 11)]
+        public void TestSortingNumberOfDiscIntersectionsWithSuccess(int[] a, int expectedResult)
+        {
+            var result = Sorting.NumberOfDiscIntersections(a);
             Assert.IsTrue(result == expectedResult);
         }
 
