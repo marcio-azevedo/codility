@@ -240,45 +240,56 @@ namespace Codility.Katas.Tests
 
         #endregion
 
-        //private Tuple<int, int> GetSums(int[] array, int length, int p)
-        //{
-        //    int result1 = 0;
-        //    int result2 = 0;
+        #region Stacks and Queues
 
-        //    switch (p)
-        //    {
-        //        case 0:
-        //            result1 = 0;
-        //            result2 = SumArrayValues(array, p + 1, length);
-        //            break;
-        //        default:
-        //            if (p == (length - 1))
-        //            {
-        //                result1 = SumArrayValues(array, 0, p - 1);
-        //                result2 = 0;
-        //            }
-        //            else
-        //            {
-        //                result1 = SumArrayValues(array, 0, p - 1);
-        //                result2 = SumArrayValues(array, p + 1, length);
-        //            }
+        [TestCase("abcd", 'd')]
+        [TestCase("", '\0')]
+        public void TestStacksPopWithSuccess(string s, char expectedResult)
+        {
+            var result = StacksQueues.StackPop(ref s);
+            Assert.IsTrue(result == expectedResult);
+        }
 
-        //            break;
-        //    }
+        [TestCase("abcd", 'e', "abcde", 4)]
+        [TestCase("", 'a', "a", 0)]
+        public void TestStacksPushWithSuccess(string s, char c, string expectedResult, int expectedIndex)
+        {
+            var result = StacksQueues.StackPush(ref s, c);
+            Assert.IsTrue(expectedIndex.Equals(result));
+            Assert.IsTrue(expectedResult.Equals(s));
+        }
 
-        //    return new Tuple<int, int>(result1, result2);
-        //}
+        [TestCase("abcd", 'a')]
+        [TestCase("", '\0')]
+        public void TestQueuesPopWithSuccess(string s, char expectedResult)
+        {
+            var result = StacksQueues.QueuePop(ref s);
+            Assert.IsTrue(result == expectedResult);
+        }
 
-        //private int SumArrayValues(int[] array, int start, int end)
-        //{
-        //    int result = (start == end) ? array[start] : 0;
+        [TestCase("bcd", 'a', "abcd", 0)]
+        [TestCase("", 'a', "a", 0)]
+        public void TestQueuesPushWithSuccess(string s, char c, string expectedResult, int expectedIndex)
+        {
+            var result = StacksQueues.QueuePush(ref s, c);
+            Assert.IsTrue(expectedIndex.Equals(result));
+            Assert.IsTrue(expectedResult.Equals(s));
+        }
 
-        //    for (int i = start; i < end; i++)
-        //    {
-        //        result += array[i];
-        //    }
+        [TestCase("(()())()", 1)]
+        [TestCase("{{({}[]{})}}[]{}", 1)]
+        [TestCase("({{({}[]{})}}[]{})", 1)]
+        [TestCase("()()()", 1)]
+        [TestCase("", 1)]
+        [TestCase("{[()()]}", 1)]
+        [TestCase("([)()]", 0)]
+        [TestCase("([)()", 0)]
+        public void TestStacksQueuesBracketsWithSuccess(string s, int expectedResult)
+        {
+            var result = StacksQueues.Brackets(s);
+            Assert.IsTrue(result == expectedResult);
+        }
 
-        //    return result;
-        //}
+        #endregion
     }
 }
